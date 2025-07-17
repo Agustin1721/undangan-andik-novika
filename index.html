@@ -1,135 +1,144 @@
-
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Undangan Pernikahan Andik & Novika</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Poppins', sans-serif;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
     section {
       min-height: 100vh;
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
-      padding: 30px;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
       text-align: center;
-      transition: 0.6s ease;
+      transition: all 0.7s ease;
     }
-    section:nth-child(even) {
-      background: #f3f3f3;
+    h1, h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      color: #593C1C;
     }
-    h1, h2, p {
-      margin: 10px 0;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      background: #007bff;
+    .btn {
+      padding: 1rem 2rem;
+      background: #3490dc;
       color: white;
-      border-radius: 5px;
-      cursor: pointer;
+      border: none;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      margin-top: 20px;
     }
     .hidden {
       display: none;
     }
+    #music {
+      display: none;
+    }
+    img {
+      max-width: 80%;
+      height: auto;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+    input, textarea {
+      padding: 0.5rem;
+      margin-top: 10px;
+      width: 80%;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+    }
   </style>
 </head>
-<body>
-
-<!-- Embed lagu dari YouTube autoplay -->
-<iframe width="0" height="0" src="https://www.youtube.com/embed/-cDavF9-jzk?autoplay=1&loop=1&playlist=-cDavF9-jzk" frameborder="0" allow="autoplay"></iframe>
-
-<!-- Slide 1: Pembuka -->
-<section id="slide1">
+<body><!-- Slide 1 --><section id="slide1">
   <h1>Undangan Pernikahan</h1>
   <h2>Andik & Novika</h2>
   <p>Dengan penuh cinta kami mengundang Anda untuk hadir dalam hari bahagia kami</p>
-  <button onclick="nextSlide()">Buka Undangan</button>
-</section>
-
-<!-- Slide 2: Mempelai -->
-<section id="slide2" class="hidden">
-  <h2>Andik & Novika</h2>
-  <p>Putra dari Bapak & Ibu Andik</p>
-  <p>Putri dari Bapak & Ibu Novika</p>
-  <button onclick="nextSlide()">Lanjut</button>
-</section>
-
-<!-- Slide 3: Kata-kata -->
-<section id="slide3" class="hidden">
-  <h2>"Cinta menyatukan dua jiwa dalam satu ikatan yang suci."</h2>
-  <button onclick="nextSlide()">Lanjut</button>
-</section>
-
-<!-- Slide 4: Countdown -->
-<section id="slide4" class="hidden">
+  <button class="btn" onclick="bukaUndangan()">Buka Undangan</button>
+</section><!-- Slide 2 --><section id="slide2" class="hidden">
+  <h2>Mempelai</h2>
+  <img src="https://via.placeholder.com/250x300?text=Andik" alt="Andik" />
+  <p>Putra dari Bapak Aris Nur Joko & Ibu Ismiyati</p>
+  <img src="https://via.placeholder.com/250x300?text=Novika" alt="Novika" />
+  <p>Putri dari Bapak Asmawi (Alm) & Ibu Asih</p>
+</section><!-- Slide 3 --><section id="slide3" class="hidden">
+  <h2>Kata Cinta</h2>
+  <p>"Cinta adalah ketika kebahagiaan orang lain lebih penting daripada kebahagiaan kita sendiri."</p>
+</section><!-- Slide 4 --><section id="slide4" class="hidden">
   <h2>Menuju Hari Bahagia</h2>
-  <div id="countdown" style="font-size: 24px;"></div>
-  <button onclick="nextSlide()">Lanjut</button>
-</section>
-
-<!-- Slide 5: Galeri (Kosong sementara) -->
-<section id="slide5" class="hidden">
-  <h2>Galeri</h2>
-  <p>(Foto akan segera ditampilkan)</p>
-  <button onclick="nextSlide()">Lanjut</button>
-</section>
-
-<!-- Slide 6: Detail Acara -->
-<section id="slide6" class="hidden">
+  <div id="countdown">Menghitung waktu...</div>
+</section><!-- Slide 5 --><section id="slide5" class="hidden">
+  <h2>Galeri Foto</h2>
+  <div class="gallery">
+    <img src="https://via.placeholder.com/150?text=Foto1" />
+    <img src="https://via.placeholder.com/150?text=Foto2" />
+    <img src="https://via.placeholder.com/150?text=Foto3" />
+    <img src="https://via.placeholder.com/150?text=Foto4" />
+  </div>
+</section><!-- Slide 6 --><section id="slide6" class="hidden">
   <h2>Detail Acara</h2>
-  <p>Resepsi: Minggu, 20 Oktober 2025</p>
-  <p>Lokasi: Rumah mempelai wanita</p>
-  <p><a href="https://maps.app.goo.gl/" target="_blank">Lihat di Google Maps</a></p>
-  <button onclick="nextSlide()">Lanjut</button>
-</section>
-
-<!-- Slide 7: Kehadiran -->
-<section id="slide7" class="hidden">
-  <h2>Konfirmasi Kehadiran</h2>
-  <form onsubmit="alert('Terima kasih atas konfirmasinya!'); return false;">
-    <input type="text" placeholder="Nama Anda" required /><br/><br/>
-    <textarea placeholder="Ucapan untuk mempelai" required></textarea><br/><br/>
-    <button type="submit">Kirim</button>
+  <p>Resepsi: Minggu, 25 Agustus 2025<br> Pukul 10.00 - 14.00 WIB<br> Gedung Serba Guna, Semarang</p>
+  <a class="btn" href="https://maps.app.goo.gl/" target="_blank">Lihat Lokasi</a>
+</section><!-- Slide 7 --><section id="slide7" class="hidden">
+  <h2>Absen Kehadiran</h2>
+  <form onsubmit="alert('Terima kasih atas ucapan Anda!'); return false;">
+    <input type="text" placeholder="Nama Anda" required /><br />
+    <textarea placeholder="Ucapan & Doa" required></textarea><br />
+    <button class="btn" type="submit">Kirim</button>
   </form>
-</section>
+</section><audio id="music" autoplay loop>
+  <source src="https://example.com/lagu-lesung-pipi.mp3" type="audio/mp3">
+</audio><script>
+  const slides = ['slide1','slide2','slide3','slide4','slide5','slide6','slide7'];
+  let current = 0;
 
-<script>
-  let slideIndex = 1;
+  function bukaUndangan() {
+    document.getElementById('slide1').classList.add('hidden');
+    document.getElementById('music').play();
+    nextSlide();
+  }
+
   function nextSlide() {
-    document.getElementById("slide" + slideIndex).classList.add("hidden");
-    slideIndex++;
-    document.getElementById("slide" + slideIndex).classList.remove("hidden");
+    if (current < slides.length - 1) {
+      current++;
+      document.getElementById(slides[current]).classList.remove('hidden');
+      setTimeout(nextSlide, 5000);
+    }
   }
 
   // Countdown
-  const countdown = () => {
-    const countDate = new Date("October 20, 2025 08:00:00").getTime();
+  const targetDate = new Date("2025-08-25T10:00:00").getTime();
+  const countdownEl = document.getElementById("countdown");
+
+  setInterval(() => {
     const now = new Date().getTime();
-    const gap = countDate - now;
-
-    const day = 1000 * 60 * 60 * 24;
-    const hour = 1000 * 60 * 60;
-    const minute = 1000 * 60;
-    const second = 1000;
-
-    const d = Math.floor(gap / day);
-    const h = Math.floor((gap % day) / hour);
-    const m = Math.floor((gap % hour) / minute);
-    const s = Math.floor((gap % minute) / second);
-
-    document.getElementById("countdown").innerText =
-      d + " Hari " + h + " Jam " + m + " Menit " + s + " Detik ";
-  };
-  setInterval(countdown, 1000);
-</script>
-
-</body>
+    const distance = targetDate - now;
+    if (distance < 0) {
+      countdownEl.innerHTML = "Hari Bahagia Telah Tiba!";
+      return;
+    }
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((distance % (1000 * 60)) / 1000);
+    countdownEl.innerHTML = `${days} hari ${hours} jam ${mins} menit ${secs} detik`;
+  }, 1000);
+</script></body>
 </html>
