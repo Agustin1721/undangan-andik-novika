@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undangan Pernikahan - Andik & Novika</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #fffaf0; color: #4b2e2e; }
+    .swiper { width: 100%; height: 100vh; }
+    .swiper-slide { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; text-align: center; background: url('https://i.ibb.co/W6T6Qn6/batik-jawa.png') repeat; background-size: contain; }
+    h1, h2, h3, p { background-color: rgba(255,255,255,0.8); padding: 10px; border-radius: 10px; }
+    .slide1 h1 { font-size: 2em; margin-bottom: 10px; color: #8b0000; }
+    .slide1 button { padding: 10px 20px; background: #a0522d; color: white; border: none; border-radius: 20px; font-size: 16px; cursor: pointer; }
+    .slide2, .slide3, .slide4, .slide5, .slide6, .slide7 { animation: fadeIn 1s ease-in-out; }
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    .countdown { font-size: 1.5em; color: #6e260e; }
+    .form-group { margin: 10px 0; }
+    input, textarea { padding: 10px; width: 100%; border: 1px solid #ccc; border-radius: 8px; }
+    button.submit { margin-top: 10px; background: #6e260e; color: white; padding: 10px 20px; border: none; border-radius: 20px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="Raim Laode - Lesung Pipi ( video lirik official ).mp3" type="audio/mpeg">
+  </audio>  <div class="swiper">
+    <div class="swiper-wrapper"><!-- Slide 1 -->
+  <div class="swiper-slide slide1">
+    <h1>The Wedding of</h1>
+    <h2>Andik & Novika</h2>
+    <button onclick="swiper.slideNext()">Buka Undangan</button>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="swiper-slide slide2">
+    <h2>Andik Nur Cahyo</h2>
+    <p>Putra dari Bapak Aris Nur Joko dan Ibu Ismiyati</p>
+    <br/>
+    <h2>Novika Safitri</h2>
+    <p>Putri dari Bapak Asmawi (Alm) dan Ibu Asih</p>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="swiper-slide slide3">
+    <p>
+      "Pernikahan bukan hanya menyatukan dua insan,<br>
+      tapi menyatukan dua hati dalam ikatan suci karena Allah.<br>
+      Semoga langkah ini menjadi awal dari ibadah terpanjang<br>
+      yang penuh berkah, rahmat, dan ridha-Nya."
+    </p>
+  </div>
+
+  <!-- Slide 4 -->
+  <div class="swiper-slide slide4">
+    <h2>Menuju Hari Bahagia</h2>
+    <div class="countdown" id="countdown"></div>
+  </div>
+
+  <!-- Slide 5 -->
+  <div class="swiper-slide slide5">
+    <h2>Galeri Kenangan</h2>
+    <p>(Foto akan ditampilkan di sini nanti)</p>
+  </div>
+
+  <!-- Slide 6 -->
+  <div class="swiper-slide slide6">
+    <h2>Resepsi</h2>
+    <p>Minggu, 14 September 2025</p>
+    <p>10.00 WIB - selesai</p>
+    <p>Rumah Mempelai Pria<br>RT 5 RW 3 No. 4<br>Patokan: Sebelah Gang Indomaret</p>
+    <a href="https://maps.app.goo.gl/PCFYZVe5DxmEaRhB9?g_st=ac" target="_blank">📍 Lihat Lokasi</a>
+  </div>
+
+  <!-- Slide 7 -->
+  <div class="swiper-slide slide7">
+    <h2>Konfirmasi Kehadiran</h2>
+    <div class="form-group">
+      <input type="text" placeholder="Nama Anda">
+    </div>
+    <div class="form-group">
+      <textarea rows="4" placeholder="Ucapan untuk mempelai"></textarea>
+    </div>
+    <button class="submit">Kirim</button>
+  </div>
+
+</div>
+
+  </div>  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>  <script>
+    const swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      allowTouchMove: true,
+    });
+
+    // Countdown
+    const targetDate = new Date("2025-09-14T10:00:00").getTime();
+    const countdown = document.getElementById("countdown");
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdown.innerHTML = `${days} Hari ${hours} Jam ${minutes} Menit ${seconds} Detik`;
+    }, 1000);
+  </script></body>
+</html>
